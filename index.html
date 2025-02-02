@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Template</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('1000864151.jpg') no-repeat center center/cover;
+            color: #fff;
+            position: relative;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 128, 0, 0.7);
+            z-index: 0;
+        }
+        header {
+            background: green;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        nav {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        nav a {
+            display: flex;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .card {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        @media (max-width: 800px) {
+            .menu-toggle { display: block; }
+            nav { display: none; position: absolute; top: 60px; right: 20px; background: green; padding: 10px; }
+            nav.active { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <header>
+        <span class="menu-toggle">☰</span>
+        <h1>CST 363  GROUP 3 PROJECT</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <div class="content">
+        <p>Meet our group members, a team of skilled students dedicated to excellence.</p>
+        <div class="cards">
+            <div class="card">
+                <h3>NWIMO GOODLUCK CHIOMA</h3>
+                <p>2022/0209/3148</p>
+            </div>
+            <div class="card">
+                <h3>IFEDINIRU MARVELOUS ELOCHUKWU</h3>
+                <p>2022/0209/3133</p>
+            </div>
+            <div class="card">
+                <h3>OKAFOR IFEANYI MIRACLE </h3>
+                <p>2022/0209/3135</p>
+            </div>
+            <div class="card">
+                <h3>IKE ECHEZONA</h3>
+                <p>2022/0209/3127</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 GROUP_3</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('header').style.transition = '0.5s';
+            document.querySelector('header').style.transform = 'translateY(-10px)';
+            setTimeout(() => {
+                document.querySelector('header').style.transform = 'translateY(0)';
+            }, 300);
+            
+            document.querySelector('.menu-toggle').addEventListener('click', () => {
+                document.querySelector('nav').classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
